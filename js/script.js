@@ -8,6 +8,10 @@ console.log('Js-campominato-Dom')
 // elenco variabili utilizzate
 let i, quadrato, numCelle, cellePerLato;
 
+
+const numBombe = 16; // numero massimo di bombe presenti in griglia
+
+
 // richiamo in una costante gli elementi nel dom già presenti
 const buttonPlay = document.querySelector('button');
 const modalitaDiGioco = document.getElementById('modalità-di-gioco');
@@ -39,16 +43,25 @@ buttonPlay.addEventListener("click", () => {
     }
     console.log(numCelle);
     console.log(larghezzaRem);
+    // creo espressione per la creazione delle bombe
+    const bombe = []; // array contenente le bombe
+    i = 0;
+    while(i < numBombe){
+        bombe[i] = Number.parseInt(Math.random() * numCelle, 10);
+        i++
+    }
+    console.log(bombe);
     // creo ciclo per creare i quadrati in base alla difficolta selezionata
     i = 1;
     while (i <= numCelle){
         const quadrati = generazioneQuadrati (i, larghezzaRem);
         quadrati.addEventListener("click", () => {
-            quadrati.classList.add('bk-celeste');
+            quadrati.classList.add('bk-celeste'); // aggiungo la classe che colorerà le caselle al click
         });
         i++
     };
 });
+
 
 // funzione per creare quadrati e numeri all'interno
 function generazioneQuadrati (num, width) {
@@ -60,5 +73,5 @@ function generazioneQuadrati (num, width) {
     quadrato.querySelector('article');
     // crea un numero da inserire nel nodo precedente e chiudiamo la funzione
     quadrato.append(num);
-     return quadrato;
+    return quadrato;
 };
