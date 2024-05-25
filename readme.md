@@ -21,3 +21,8 @@ BONUS:
     difficoltà 1 ⇒ 100 caselle, con un numero compreso tra 1 e 100, divise in 10 caselle per 10 righe;
     difficoltà 2 ⇒ 81 caselle, con un numero compreso tra 1 e 81, divise in 9 caselle per 9 righe;
     difficoltà 3 ⇒ 49 caselle, con un numero compreso tra 1 e 49, divise in 7 caselle per 7 righe;
+
+Svolgimento:
+
+- Creo costante array vuoto
+- Creo ciclo per generare i 16 numeri randomici interi che avranno valore da 1 fino al numero di celle in griglia e li carico come elementi singoli nell'array vuoto creato in precedenza
