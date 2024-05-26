@@ -26,3 +26,5 @@ Svolgimento:
 
 - Creo costante array vuoto
 - Creo ciclo per generare i 16 numeri randomici interi che avranno valore da 1 fino al numero di celle in griglia e li carico come elementi singoli nell'array vuoto creato in precedenza
+- Creo funzione per generare il numero random intero della singola bomba
+- Nel ciclo precedente creato inserisco la funzione per generare "la bomba" ed inserisco condizione per avere 16 bombe diverse (16 numeri diversi)
