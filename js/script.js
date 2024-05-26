@@ -42,12 +42,14 @@ buttonPlay.addEventListener("click", () => {
              larghezzaRem = 5;       
     }
     console.log(numCelle);
-    console.log(larghezzaRem);
-    // creo espressione per la creazione delle bombe
-    const bombe = []; // array contenente le bombe
+    console.log(`Larghezza del quadrato: ` + larghezzaRem + 'rem');
+    const bombe = []; // array contenente le bombe 
     i = 0;
-    while(i < numBombe){
-        bombe[i] = Number.parseInt(Math.random() * numCelle, 10);
+    while(i < numBombe){ // ciclo che inserisce nell'array bombe numeri casuali senza ripeterli
+        const bomba = numRandomPerBomba(numCelle); 
+        if(!bombe.includes(bomba)){ // condizione per evitare che inserisca più volte lo stesso numero
+            bombe.push(bomba)
+        }
         i++
     }
     console.log(bombe);
@@ -56,7 +58,7 @@ buttonPlay.addEventListener("click", () => {
     while (i <= numCelle){
         const quadrati = generazioneQuadrati (i, larghezzaRem);
         quadrati.addEventListener("click", () => {
-            quadrati.classList.add('bk-celeste'); // aggiungo la classe che colorerà le caselle al click
+                quadrati.classList.add('bk-celeste'); // aggiungo la classe che colorerà le caselle al click
         });
         i++
     };
@@ -65,7 +67,7 @@ buttonPlay.addEventListener("click", () => {
 
 // funzione per creare quadrati e numeri all'interno
 function generazioneQuadrati (num, width) {
-    //  generare classe e dimensioni dei quadratini
+    // generare classe e dimensioni dei quadratini
     quadrato = document.createElement('article');// creo l'elemento article che sarà il quadrato numerato
     sectionSecondo.appendChild(quadrato);// aggiungo come figli di section i vari article
     quadrato.classList.add('quadrato');// aggiungo la classe per la personalizzazione con il file css
@@ -74,4 +76,9 @@ function generazioneQuadrati (num, width) {
     // crea un numero da inserire nel nodo precedente e chiudiamo la funzione
     quadrato.append(num);
     return quadrato;
+};
+
+// funzione per generare il numero della bomba
+function numRandomPerBomba(numeroTotaleCelle){
+    return Number.parseInt(Math.random() * numeroTotaleCelle+1, 10);
 };
