@@ -50,9 +50,20 @@ button{
     color: white;
     border: 1px solid black;
     text-align: center;
+    cursor: pointer;
 }
 
 .bk-celeste{
     background-color: cyan;
     color: black;
+}
+
+.bk-rosso{
+    background-color: red;
+    color: black;
+}
+
+.bk-celeste,
+.bk-rosso{
+    cursor: default;
 }
